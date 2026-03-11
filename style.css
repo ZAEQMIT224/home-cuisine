@@ -1,19 +1,44 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-img{display:block;max-width:100%}
-button{cursor:pointer;font-family:inherit;border:none;background:none}
-:root{
-  --bg:#080401;--s1:#110804;--s2:#1A0D06;--s3:#231209;
-  --gold:#C8972E;--gold2:#E8C96A;--gold-glow:rgba(200,151,46,0.18);
-  --cream:#EDD8BC;--cream2:rgba(237,216,188,0.6);--cream3:rgba(237,216,188,0.25);
-  --border:rgba(200,151,46,0.14);--border2:rgba(237,216,188,0.08);
-  --amber:#C4692A;--r:24px;--r2:16px;--r3:12px;
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100vw;
+  position: relative;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--cream);overflow-x:hidden;}
-body::after{
-  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.032;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:160px 160px;
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+:root {
+  --bg: #080401; --s1: #110804; --s2: #1A0D06; --s3: #231209;
+  --gold: #C8972E; --gold2: #E8C96A; --gold-glow: rgba(200,151,46,0.18);
+  --cream: #EDD8BC; --cream2: rgba(237,216,188,0.6); --cream3: rgba(237,216,188,0.25);
+  --border: rgba(200,151,46,0.14); --border2: rgba(237,216,188,0.08);
+  --amber: #C4692A; --r: 24px; --r2: 16px; --r3: 12px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+  overflow-x: hidden;
+  width: 100vw;
+  position: relative;
+}
+
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: .032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
 }
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:20px 64px;transition:background .4s,padding .3s;}
 nav.scrolled{background:rgba(8,4,1,0.92);backdrop-filter:blur(20px);padding:14px 64px;border-bottom:1px solid var(--border);}
@@ -265,4 +290,53 @@ textarea.form-input{resize:vertical;min-height:72px;}
   .footer-top{grid-template-columns:1fr;}.detail-body{padding:24px 20px 40px;}
   .ingredients-grid{grid-template-columns:repeat(2,1fr);}.checkout-modal{padding:28px 20px;}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+}
+@media(max-width: 1000px) {
+  /* Restructure cart to be a floating dropdown on mobile */
+  .cart-drawer {
+    top: 80px; /* sits right below the nav */
+    right: 24px;
+    bottom: auto;
+    height: 75vh;
+    width: calc(100vw - 48px);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    
+    /* The Liquid Dropdown Animation */
+    transform-origin: top right; /* Animates out from the cart button */
+    transform: scale(0.4) translateY(-40px); /* Starts shrunken and pulled up */
+    opacity: 0;
+    /* This custom bezier creates a stretchy, viscous bounce */
+    transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  }
+  
+  .cart-drawer.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+@media(max-width: 1000px) {
+  .detail-panel {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 88vh; /* Leaves a bit of the background showing above */
+    width: 100vw;
+    border-radius: 32px 32px 0 0;
+    border-top: 1px solid var(--border2);
+    border-left: none;
+    
+    /* The Viscous Expand Animation */
+    transform-origin: bottom center;
+    /* Starts pushed down and vertically stretched (viscous effect) */
+    transform: translateY(100%) scaleY(1.15); 
+    opacity: 0;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.3, 1.15), opacity 0.4s ease;
+  }
+  
+  .detail-panel.open {
+    transform: translateY(0) scaleY(1); /* Snaps back to normal proportions */
+    opacity: 1;
+  }
 }
