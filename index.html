@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Home Cuisine — Fine Comfort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="style.css"/>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#hero">Home<span>Cuisine</span></a>
+  <ul class="nav-links">
+    <li><a href="#featured">Dishes</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Ashoknagar Kalyangarh  ·  Est. with love</div>
+    <h1 class="hero-title">Home<em>Cuisine</em></h1>
+    <p class="hero-tagline">Where comfort meets the art of flavour</p>
+    <p class="hero-sub">Pizzas  ·  Burgers  ·  Snacks  ·  Free Home Delivery  ·  ₹1–200</p>
+    <div class="hero-btns">
+      <a href="#featured" class="btn-gold">Explore Menu</a>
+      <a href="tel:08617447578" class="btn-ghost">Call to Order</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div>Scroll to discover</div>
+</section>
+
+<section class="featured-sec" id="featured">
+  <div class="featured-head reveal">
+    <div>
+      <div class="s-label">Signature Dishes</div>
+      <h2 class="s-title">Crafted with <em>Passion</em></h2>
+      <p class="s-desc">Each dish — fresh ingredients, bold flavours, soul in every bite.</p>
+    </div>
+    <a href="#menu" class="see-all">View full menu →</a>
+  </div>
+  <div class="dishes-grid" id="dishes-grid"></div>
+</section>
+
+<div class="about-sec" id="about">
+  <div class="about-visual">
+    <img class="about-img" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1000&q=85" alt="cozy café interior" loading="lazy"/>
+    <div class="about-img-overlay"></div>
+  </div>
+  <div class="about-content">
+    <div class="s-label reveal">Our Story</div>
+    <h2 class="s-title reveal">A Neighbourhood <em>Gem</em></h2>
+    <p class="s-desc reveal">Home Cuisine is Ashoknagar Kalyangarh's best-kept secret — a warm, welcoming café where every meal is crafted with genuine care. Born from the belief that extraordinary food need not carry an extraordinary price tag.</p>
+    <div class="about-perks reveal">
+      <div class="perk"><div class="perk-dot"></div><p class="perk-text"><strong>Free home delivery</strong> — hot food at your door, no hidden charges.</p></div>
+      <div class="perk"><div class="perk-dot"></div><p class="perk-text"><strong>Prices ₹1–200</strong> — restaurant quality that respects your pocket.</p></div>
+      <div class="perk"><div class="perk-dot"></div><p class="perk-text"><strong>Fresh to order</strong> — nothing sits under heat lamps here.</p></div>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat-block"><div class="stat-n">4.5★</div><div class="stat-l">Google Rating</div></div>
+      <div class="stat-block"><div class="stat-n">₹200</div><div class="stat-l">Max price</div></div>
+      <div class="stat-block"><div class="stat-n">Free</div><div class="stat-l">Delivery</div></div>
+      <div class="stat-block"><div class="stat-n">100%</div><div class="stat-l">Fresh Daily</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="menu-sec" id="menu">
+  <div class="menu-header reveal">
+    <div class="s-label">Full Menu</div>
+    <h2 class="s-title">Our <em>Offerings</em></h2>
+    <p class="s-desc" style="max-width:420px;margin:0 auto">Something exquisite for every craving — click any dish to explore.</p>
+  </div>
+  <div class="menu-tabs" id="menu-tabs"></div>
+  <div id="menu-panels"></div>
+</section>
+
+<section class="reviews-sec" id="reviews">
+  <div class="reviews-head reveal">
+    <div class="s-label">What They Say</div>
+    <h2 class="s-title">Voices of <em>Delight</em></h2>
+    <div style="margin-top:28px">
+      <span class="rating-display">4.5</span>
+      <div class="rating-stars-row">★ ★ ★ ★ ½</div>
+      <div class="rating-sub">Based on Google Reviews · Ashoknagar Kalyangarh</div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <p class="review-quote">Very good food — quality and quantity both excellent. Always consistent, never disappointed.</p>
+      <div class="review-author"><div class="review-av">RD</div><div><div class="review-name">Ratna Debnath</div><div class="review-stars2">★ ★ ★ ★ ★</div></div></div>
+    </div>
+    <div class="review-card reveal">
+      <p class="review-quote">Ordered the 7" peri peri chicken pizza and chicken popcorn — absolutely loved every bite. Will keep coming back!</p>
+      <div class="review-author"><div class="review-av">PC</div><div><div class="review-name">Pritam Chatterjee</div><div class="review-stars2">★ ★ ★ ★ ★</div></div></div>
+    </div>
+    <div class="review-card reveal">
+      <p class="review-quote">Nice food, great rate, free home delivery. Best café in Ashoknagar for anyone who wants quality food on a budget.</p>
+      <div class="review-author"><div class="review-av">TD</div><div><div class="review-name">Tapas Das</div><div class="review-stars2">★ ★ ★ ★ ★</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-sec" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="s-label reveal">Find Us</div>
+      <h2 class="s-title reveal">Visit <em>Home Cuisine</em></h2>
+      <p class="s-desc reveal">We'd love to have you. Walk in or call ahead — the table is always warm.</p>
+      <div class="contact-cards" style="margin-top:32px">
+        <div class="contact-card reveal"><div class="ci">📍</div><div><div class="cl">Address</div><div class="cv">Jirat Road, Kachua–Rajberia Rd</div><div class="cv2">Ashoknagar Kalyangarh, WB 743222</div></div></div>
+        <div class="contact-card reveal"><div class="ci">📞</div><div><div class="cl">Phone</div><div class="cv">086174 47578</div><div class="cv2">Call to order — always happy to help</div></div></div>
+        <div class="contact-card reveal"><div class="ci">⏰</div><div><div class="cl">Hours</div><div class="cv">Opens 1:30 PM daily</div><div class="cv2">Peak hours ~6:00 PM · Come early!</div></div></div>
+      </div>
+      <div class="contact-btns reveal">
+        <a href="tel:08617447578" class="btn-gold">📞 Call Now</a>
+        <a href="https://wa.me/918617447578" target="_blank" class="btn-ghost">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="map-box reveal">
+      <div class="map-pin-icon">📍</div>
+      <p class="map-addr">Jirat Road, Kachua–Rajberia Rd<br/>Ashoknagar Kalyangarh<br/>West Bengal 743222</p>
+      <a href="https://maps.google.com/?q=Ashoknagar+Kalyangarh+West+Bengal" target="_blank" class="btn-gold">Get Directions →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a class="footer-logo" href="#hero">Home<span>Cuisine</span></a>
+      <p class="footer-tagline">A cosy neighbourhood café crafting bold flavours for every pocket. Come hungry, leave happy.</p>
+      <div class="footer-socials">
+        <a class="soc" href="#" title="Instagram">📸</a>
+        <a class="soc" href="#" title="Facebook">👍</a>
+        <a class="soc" href="https://wa.me/918617447578" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#hero">Home</a></li><li><a href="#featured">Dishes</a></li>
+        <li><a href="#menu">Menu</a></li><li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Reach Us</div>
+      <ul class="footer-links">
+        <li><a href="tel:08617447578">📞 086174 47578</a></li>
+        <li><a href="#">📍 Ashoknagar Kalyangarh</a></li>
+        <li><a href="#">⏰ Opens 1:30 PM</a></li>
+        <li><a href="https://wa.me/918617447578">💬 WhatsApp Order</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Home Cuisine · All rights reserved.</div>
+    <div class="footer-copy">Made with ❤️ in Ashoknagar Kalyangarh</div>
+  </div>
+</footer>
+
+<div class="detail-overlay" id="detail-overlay" onclick="closeDetail()"></div>
+<div class="detail-panel" id="detail-panel">
+  <button class="detail-close" onclick="closeDetail()">✕</button>
+  <div class="detail-hero">
+    <img class="detail-hero-img" id="detail-img" src="" alt=""/>
+    <div class="detail-hero-grad"></div>
+    <div class="detail-hero-price" id="detail-price"></div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-badges" id="detail-badges"></div>
+    <h2 class="detail-name" id="detail-name"></h2>
+    <p class="detail-tagline" id="detail-tagline"></p>
+    <p class="detail-desc" id="detail-desc"></p>
+    <div class="detail-sec-title">What's Inside</div>
+    <div class="ingredients-grid" id="detail-ingredients"></div>
+    <div class="detail-add">
+      <div class="qty-ctrl">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <div class="qty-num" id="detail-qty">1</div>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+      <button class="add-cart-btn" onclick="addCurrentToCart()">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <div class="cart-title">Your Order</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <div class="cart-total-label">Total</div>
+      <div class="cart-total-val" id="cart-total">₹0</div>
+    </div>
+    <button class="checkout-btn" id="checkout-btn" onclick="openCheckout()" disabled>Proceed to Order</button>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal">
+    <div class="modal-close-row"><button class="modal-x" onclick="closeCheckout()">✕</button></div>
+    <div id="checkout-form-area">
+      <h2 class="checkout-title">Place Your Order</h2>
+      <p class="checkout-subtitle">Fill in your details and we'll get it to you fresh.</p>
+      <div class="setup-note" id="setup-note">
+        ⚙️ <strong>Dev note:</strong> EmailJS keys not set — order will open your email client.
+        To enable direct sending: <a href="https://emailjs.com" target="_blank">get free keys at emailjs.com</a>
+        and update CONFIG in the script.
+      </div>
+      <div class="cos" id="cos-wrap"></div>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" id="f-name" placeholder="e.g. Riya Das"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="f-phone" placeholder="e.g. 9876543210"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Delivery Address</label>
+        <textarea class="form-input" id="f-address" placeholder="House no., street, landmark…"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Special Instructions (optional)</label>
+        <input type="text" class="form-input" id="f-notes" placeholder="e.g. extra spicy, no onions…"/>
+      </div>
+      <button class="place-order-btn" id="place-btn" onclick="placeOrder()">Send Order</button>
+    </div>
+    <div id="order-success" style="display:none" class="order-success">
+      <div class="order-success-icon">🎉</div>
+      <div class="order-success-title">Order Placed!</div>
+      <p class="order-success-msg">Your order has been sent to Home Cuisine.<br/>We'll call you at <strong id="success-phone"></strong> shortly to confirm.<br/><br/><em style="font-size:.76rem;color:var(--cream3)">Expected delivery: 30–45 minutes</em></p>
+      <button class="btn-gold" style="margin-top:28px" onclick="closeCheckout()">Back to Menu</button>
+    </div>
+  </div>
+</div>
+
+<a class="wa-fab" href="https://wa.me/918617447578" target="_blank">💬</a>
+
+</body>
+</html>
